@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nails Art by Isabel C | Estudio de Uñas & Nail Art Profesional</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Playfair Display (Elegante) e Inter (Lectura) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome CDN para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Configuración personalizada de Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            pink: '#FDF2F4',     /* Rosado muy suave / Rosa perla */
+                            blush: '#F8E3E8',    /* Rosa rubor */
+                            gold: '#D4AF37',     /* Oro suave */
+                            rosegold: '#B87333', /* Rose Gold acento */
+                            rose: '#C88EA7',     /* Rosa elegante pastel */
+                            dark: '#2D2327',     /* Granate oscuro / Marrón para textos cálidos */
+                            light: '#FAFAFA'     /* Blanco hueso / perla */
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos personalizados y animaciones */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .text-gradient-rosegold {
+            background: linear-gradient(135deg, #C88EA7 0%, #B87333 50%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gradient-rosegold {
+            background: linear-gradient(135deg, #E8A7BD 0%, #C88EA7 50%, #B87333 100%);
+        }
+        .border-rosegold-glow {
+            border: 1px solid rgba(200, 142, 167, 0.3);
+            box-shadow: 0 10px 30px -10px rgba(200, 142, 167, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-brand-light text-brand-dark font-sans antialiased selection:bg-brand-blush selection:text-brand-dark">
+
+    <!-- Banner Informativo Superior (Horarios rápidos y contacto) -->
+    <div class="bg-brand-dark text-white text-xs py-2 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2 text-center md:text-left">
+            <div class="flex items-center space-x-4">
+                <span><i class="fa-regular fa-clock text-brand-rose mr-1"></i> Lun - Sáb: 8:00 AM - 7:00 PM</span>
+                <span class="hidden sm:inline">|</span>
+                <span class="hidden sm:inline"><i class="fa-solid fa-location-dot text-brand-rose mr-1"></i> Atención previa cita</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="https://wa.me/573000000000" target="_blank" class="hover:text-brand-blush transition"><i class="fa-brands fa-whatsapp text-green-400 mr-1"></i> +57 300 123 4567</a>
+                <span>|</span>
+                <a href="https://instagram.com" target="_blank" class="hover:text-brand-blush transition"><i class="fa-brands fa-instagram text-pink-400 mr-1"></i> @NailsArt.IsabelC</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navegación Principal -->
+    <nav class="sticky top-0 z-40 glass-effect border-b border-brand-blush/50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                
+                <!-- Logotipo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-11 h-11 rounded-full bg-brand-blush flex items-center justify-center border border-brand-rose/40 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-wand-magic-sparkles text-brand-rose text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-brand-dark block leading-none">Nails Art</span>
+                        <span class="text-xs uppercase tracking-widest text-brand-rose font-medium">by Isabel C</span>
+                    </div>
+                </a>
+
+                <!-- Menú Desktop -->
+                <div class="hidden lg:flex items-center space-x-8 text-sm font-medium text-brand-dark/80">
+                    <a href="#inicio" class="hover:text-brand-rose transition">Inicio</a>
+                    <a href="#servicios" class="hover:text-brand-rose transition">Servicios</a>
+                    <a href="#politicas" class="hover:text-brand-rose transition">Políticas & Horarios</a>
+                    <a href="#faq" class="hover:text-brand-rose transition">Preguntas Frecuentes</a>
+                    <a href="#contacto" class="hover:text-brand-rose transition">Contacto</a>
+                </div>
+
+                <!-- Botón Acción Principal -->
+                <div class="hidden sm:flex items-center space-x-3">
+                    <button onclick="openBookingModal()" class="bg-brand-dark text-white hover:bg-brand-rose transition px-5 py-2.5 rounded-full text-sm font-medium shadow-md flex items-center gap-2 transform active:scale-95">
+                        <i class="fa-regular fa-calendar-check text-brand-blush"></i>
+                        <span>Agendar Cita</span>
+                    </button>
+                </div>
+
+                <!-- Botón Menú Móvil -->
+                <div class="flex items-center lg:hidden">
+                    <button id="mobile-menu-btn" class="p-2 rounded-md text-brand-dark hover:bg-brand-blush focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobile-menu" class="hidden lg:hidden border-b border-brand-blush bg-white px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-brand-pink">Inicio</a>
+            <a href="#servicios" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-brand-pink">Servicios</a>
+            <a href="#politicas" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-brand-pink">Políticas & Horarios</a>
+            <a href="#faq" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-brand-pink">Preguntas Frecuentes</a>
+            <a href="#contacto" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-brand-pink">Contacto</a>
+            <div class="pt-2">
+                <button onclick="openBookingModal()" class="w-full bg-brand-rose text-white py-3 rounded-xl font-medium shadow-sm flex justify-center items-center gap-2">
+                    <i class="fa-regular fa-calendar-check"></i> Agendar Cita Ahora
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-32 bg-gradient-to-b from-brand-pink/50 via-white to-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Texto de Bienvenida -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blush text-brand-dark text-xs font-semibold uppercase tracking-wider border border-brand-rose/20">
+                        <i class="fa-solid fa-sparkles text-brand-rose"></i> Arte, Cuidado & Elegancia en tus Manos
+                    </div>
+                    
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-dark leading-tight">
+                        Realza tu belleza natural con un diseño de <span class="text-gradient-rosegold italic">uñas exclusivo.</span>
+                    </h1>
+                    
+                    <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0 font-normal">
+                        Especialistas en Manicure Ruso, Uñas Esculpidas en Acrílico, Polygel y Nail Art personalizado con acabados impecables y máxima durabilidad.
+                    </p>
+
+                    <!-- Botones de Acción -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                        <button onclick="openBookingModal()" class="bg-brand-dark hover:bg-brand-rose text-white px-8 py-4 rounded-full font-medium transition shadow-lg hover:shadow-xl flex items-center justify-center gap-3 group">
+                            <span>Solicitar Cita Ahora</span>
+                            <i class="fa-solid fa-arrow-right text-brand-blush group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                        <a href="#servicios" class="bg-white hover:bg-brand-pink text-brand-dark border border-brand-blush px-8 py-4 rounded-full font-medium transition flex items-center justify-center gap-2 shadow-sm">
+                            <i class="fa-regular fa-eye text-brand-rose"></i> Ver Servicios
+                        </a>
+                    </div>
+
+                    <!-- Métricas de Confianza -->
+                    <div class="pt-8 grid grid-cols-3 gap-4 border-t border-brand-blush/80 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <p class="font-serif text-2xl sm:text-3xl font-bold text-brand-dark">5+</p>
+                            <p class="text-xs text-gray-500">Años de Experiencia</p>
+                        </div>
+                        <div>
+                            <p class="font-serif text-2xl sm:text-3xl font-bold text-brand-dark">100%</p>
+                            <p class="text-xs text-gray-500">Higiene & Garantía</p>
+                        </div>
+                        <div>
+                            <p class="font-serif text-2xl sm:text-3xl font-bold text-brand-dark">1.5k+</p>
+                            <p class="text-xs text-gray-500">Clientes Felices</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Galería de imágenes en Hero -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Decoración de Fondo -->
+                        <div class="absolute -top-4 -left-4 w-72 h-72 bg-brand-blush rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-pulse"></div>
+                        <div class="absolute -bottom-4 -right-4 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-2xl opacity-70"></div>
+                        
+                        <!-- Tarjeta de Imagen Principal -->
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                            <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=800&auto=format&fit=crop" 
+                                 alt="Nail Art de Lujo por Isabel C" 
+                                 class="w-full h-[450px] object-cover hover:scale-105 transition duration-700">
+                            
+                            <!-- Overlay Informativo -->
+                            <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/40">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-brand-pink flex items-center justify-center text-brand-rose">
+                                        <i class="fa-solid fa-award text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold text-brand-dark">Diseños Personalizados</p>
+                                        <p class="text-xs text-gray-500">Técnicas modernas y productos hipoalergénicos</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Servicios -->
+    <section id="servicios" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-rose bg-brand-pink px-4 py-1.5 rounded-full border border-brand-blush">
+                    Menú de Servicios
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mt-4">
+                    Especialidades para realzar tus manos y pies
+                </h2>
+                <p class="text-gray-600 mt-3">
+                    Cada servicio está diseñado para ofrecerte una experiencia relajante, utilizando instrumental 100% esterilizado y materiales de gama alta.
+                </p>
+            </div>
+
+            <!-- Grilla de Servicios con Imágenes -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Servicio 1: Uñas Acrílicas & Polygel -->
+                <div class="bg-brand-pink/30 rounded-3xl overflow-hidden border border-brand-blush hover:shadow-xl transition-all duration-300 group flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=800&auto=format&fit=crop" 
+                             alt="Uñas Acrílicas y Esculpidas" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-brand-dark font-serif font-bold text-sm px-3 py-1 rounded-full shadow">
+                            Desde $80.000
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 text-brand-rose text-sm font-semibold mb-2">
+                                <i class="fa-solid fa-gem"></i> Más Solicitado
+                            </div>
+                            <h3 class="font-serif text-xl font-bold text-brand-dark mb-2">Uñas Esculpidas & Acrílicas</h3>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Extensión de uñas con técnica de acrílico o polygel. Resistencia superior, forma perfecta y acabado natural según tu preferencia.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-brand-blush/60 flex justify-between items-center">
+                            <span class="text-xs text-gray-500"><i class="fa-regular fa-clock mr-1"></i> 2 hrs aprox.</span>
+                            <button onclick="openBookingModal('Uñas Esculpidas & Acrílicas')" class="text-brand-rose hover:text-brand-dark text-sm font-bold flex items-center gap-1 transition">
+                                Agendar <i class="fa-solid fa-chevron-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Servicio 2: Manicure Semi-permanente / Ruso -->
+                <div class="bg-brand-pink/30 rounded-3xl overflow-hidden border border-brand-blush hover:shadow-xl transition-all duration-300 group flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?q=80&w=800&auto=format&fit=crop" 
+                             alt="Manicure Ruso y Semi-permanente" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-brand-dark font-serif font-bold text-sm px-3 py-1 rounded-full shadow">
+                            Desde $45.000
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 text-brand-rose text-sm font-semibold mb-2">
+                                <i class="fa-solid fa-sparkles"></i> Limpieza Profunda
+                            </div>
+                            <h3 class="font-serif text-xl font-bold text-brand-dark mb-2">Manicure Ruso & Esmaltado Gel</h3>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Limpieza minuciosa de cutícula con torno (fresas especiales) y esmaltado en gel semipermanente con duración de 21+ días.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-brand-blush/60 flex justify-between items-center">
+                            <span class="text-xs text-gray-500"><i class="fa-regular fa-clock mr-1"></i> 1.5 hrs aprox.</span>
+                            <button onclick="openBookingModal('Manicure Ruso & Esmaltado Gel')" class="text-brand-rose hover:text-brand-dark text-sm font-bold flex items-center gap-1 transition">
+                                Agendar <i class="fa-solid fa-chevron-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Servicio 3: Nail Art Personalizado -->
+                <div class="bg-brand-pink/30 rounded-3xl overflow-hidden border border-brand-blush hover:shadow-xl transition-all duration-300 group flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800&auto=format&fit=crop" 
+                             alt="Nail Art Personalizado" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-brand-dark font-serif font-bold text-sm px-3 py-1 rounded-full shadow">
+                            Cotizar
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 text-brand-rose text-sm font-semibold mb-2">
+                                <i class="fa-solid fa-paint-brush"></i> Arte a Mano Alzada
+                            </div>
+                            <h3 class="font-serif text-xl font-bold text-brand-dark mb-2">Nail Art & Diseños Exclusivos</h3>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Mano alzada, mano francesa moderna, efectos encapsulados, cristalería Swarovski, relieves 3D, degradados pastel y micro-pintura.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-brand-blush/60 flex justify-between items-center">
+                            <span class="text-xs text-gray-500"><i class="fa-regular fa-clock mr-1"></i> Tiempo variable</span>
+                            <button onclick="openBookingModal('Nail Art Personalizado')" class="text-brand-rose hover:text-brand-dark text-sm font-bold flex items-center gap-1 transition">
+                                Agendar <i class="fa-solid fa-chevron-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Servicio 4: Pedicure Spa & Gel -->
+                <div class="bg-brand-pink/30 rounded-3xl overflow-hidden border border-brand-blush hover:shadow-xl transition-all duration-300 group flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?q=80&w=800&auto=format&fit=crop" 
+                             alt="Pedicure Spa Profesional" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-brand-dark font-serif font-bold text-sm px-3 py-1 rounded-full shadow">
+                            Desde $50.000
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 text-brand-rose text-sm font-semibold mb-2">
+                                <i class="fa-solid fa-spa"></i> Relajación Total
+                            </div>
+                            <h3 class="font-serif text-xl font-bold text-brand-dark mb-2">Pedicure Spa Completo</h3>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Exfoliación profunda, hidratación intensa con mascarilla, masaje relajante y esmaltado semipermanente de larga duración.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-brand-blush/60 flex justify-between items-center">
+                            <span class="text-xs text-gray-500"><i class="fa-regular fa-clock mr-1"></i> 1.5 hrs aprox.</span>
+                            <button onclick="openBookingModal('Pedicure Spa Completo')" class="text-brand-rose hover:text-brand-dark text-sm font-bold flex items-center gap-1 transition">
+                                Agendar <i class="fa-solid fa-chevron-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Servicio 5: Kapping / Baño de Gel / Rubber Base -->
+                <div class="bg-brand-pink/30 rounded-3xl overflow-hidden border border-brand-blush hover:shadow-xl transition-all duration-300 group flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=800&auto=format&fit=crop" 
+                             alt="Kapping Gel Nivelación" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-brand-dark font-serif font-bold text-sm px-3 py-1 rounded-full shadow">
+                            Desde $55.000
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 text-brand-rose text-sm font-semibold mb-2">
+                                <i class="fa-solid fa-shield-halved"></i> Protección & Fuerza
+                            </div>
+                            <h3 class="font-serif text-xl font-bold text-brand-dark mb-2">Kapping / Nivelación Rubber Base</h3>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Baño de gel nivelador sobre uña natural para dar fuerza, corregir imperfecciones y evitar el quiebre sin necesidad de extensión.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-brand-blush/60 flex justify-between items-center">
+                            <span class="text-xs text-gray-500"><i class="fa-regular fa-clock mr-1"></i> 1.5 hrs aprox.</span>
+                            <button onclick="openBookingModal('Kapping / Rubber Base')" class="text-brand-rose hover:text-brand-dark text-sm font-bold flex items-center gap-1 transition">
+                                Agendar <i class="fa-solid fa-chevron-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Servicio 6: Retiro & Mantenimiento -->
+                <div class="bg-brand-pink/30 rounded-3xl overflow-hidden border border-brand-blush hover:shadow-xl transition-all duration-300 group flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800&auto=format&fit=crop" 
+                             alt="Mantenimiento y Retiro" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-brand-dark font-serif font-bold text-sm px-3 py-1 rounded-full shadow">
+                            Desde $25.000
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 text-brand-rose text-sm font-semibold mb-2">
+                                <i class="fa-solid fa-hand-holding-heart"></i> Cuidado Integral
+                            </div>
+                            <h3 class="font-serif text-xl font-bold text-brand-dark mb-2">Retiro Seguro & Mantenimiento</h3>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Retiro profesional de sistemas acrílicos o gel respetando la salud de la uña natural, seguido de tratamiento nutritivo.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-brand-blush/60 flex justify-between items-center">
+                            <span class="text-xs text-gray-500"><i class="fa-regular fa-clock mr-1"></i> 45 min aprox.</span>
+                            <button onclick="openBookingModal('Retiro Seguro & Mantenimiento')" class="text-brand-rose hover:text-brand-dark text-sm font-bold flex items-center gap-1 transition">
+                                Agendar <i class="fa-solid fa-chevron-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Información Administrativa: Horarios, Canales y Políticas -->
+    <section id="politicas" class="py-20 bg-brand-pink/40 border-y border-brand-blush">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-rose bg-white px-4 py-1.5 rounded-full border border-brand-blush">
+                    Gestión & Transparencia
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mt-4">
+                    Horarios, Atención y Políticas del Servicio
+                </h2>
+                <p class="text-gray-600 mt-2">
+                    Para brindarte la mejor experiencia y garantizar la puntualidad de cada cita.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Horarios de Atención -->
+                <div class="bg-white p-8 rounded-3xl border border-brand-blush shadow-sm">
+                    <div class="w-12 h-12 bg-brand-pink rounded-2xl flex items-center justify-center text-brand-rose text-xl mb-6">
+                        <i class="fa-regular fa-calendar-days"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-brand-dark mb-4">Horarios de Atención</h3>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="flex justify-between pb-2 border-b border-gray-100">
+                            <span class="font-medium text-brand-dark">Lunes a Viernes:</span>
+                            <span>8:00 AM – 7:00 PM</span>
+                        </li>
+                        <li class="flex justify-between pb-2 border-b border-gray-100">
+                            <span class="font-medium text-brand-dark">Sábados:</span>
+                            <span>8:00 AM – 6:00 PM</span>
+                        </li>
+                        <li class="flex justify-between pb-2 border-b border-gray-100 text-red-500">
+                            <span class="font-medium">Domingos y Festivos:</span>
+                            <span>Cerrado</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6 p-4 rounded-2xl bg-brand-pink/50 text-xs text-brand-dark leading-relaxed">
+                        <i class="fa-solid fa-circle-info text-brand-rose mr-1"></i>
+                        <strong>Nota:</strong> Atendemos estrictamente bajo cita previa programada para asegurar dedicación exclusiva.
+                    </div>
+                </div>
+
+                <!-- Canales de Atención Directa -->
+                <div class="bg-white p-8 rounded-3xl border border-brand-blush shadow-sm">
+                    <div class="w-12 h-12 bg-brand-pink rounded-2xl flex items-center justify-center text-brand-rose text-xl mb-6">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-brand-dark mb-4">Canales de Atención</h3>
+                    <div class="space-y-4 text-sm">
+                        <a href="https://wa.me/573000000000" target="_blank" class="flex items-start gap-3 p-3 rounded-xl hover:bg-brand-pink transition border border-gray-100">
+                            <i class="fa-brands fa-whatsapp text-green-500 text-2xl mt-0.5"></i>
+                            <div>
+                                <p class="font-bold text-brand-dark">WhatsApp Agendamientos</p>
+                                <p class="text-xs text-gray-500">+57 300 123 4567 (Respuesta rápida)</p>
+                            </div>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" class="flex items-start gap-3 p-3 rounded-xl hover:bg-brand-pink transition border border-gray-100">
+                            <i class="fa-brands fa-instagram text-pink-500 text-2xl mt-0.5"></i>
+                            <div>
+                                <p class="font-bold text-brand-dark">Instagram Direct</p>
+                                <p class="text-xs text-gray-500">@NailsArt.IsabelC (Inspiración & DM)</p>
+                            </div>
+                        </a>
+                        <div class="flex items-start gap-3 p-3 rounded-xl border border-gray-100">
+                            <i class="fa-regular fa-envelope text-brand-rose text-2xl mt-0.5"></i>
+                            <div>
+                                <p class="font-bold text-brand-dark">Correo Electrónico</p>
+                                <p class="text-xs text-gray-500">contacto@nailsartisabelc.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Políticas de Servicio -->
+                <div class="bg-white p-8 rounded-3xl border border-brand-blush shadow-sm">
+                    <div class="w-12 h-12 bg-brand-pink rounded-2xl flex items-center justify-center text-brand-rose text-xl mb-6">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-brand-dark mb-4">Políticas del Servicio</h3>
+                    <ul class="space-y-3 text-xs text-gray-600 leading-relaxed">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-clock text-brand-rose mt-0.5"></i>
+                            <span><strong>Puntualidad:</strong> Tolerancia máxima de 15 minutos. Pasado este tiempo la cita podrá ser reprogramada.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-calendar-xmark text-brand-rose mt-0.5"></i>
+                            <span><strong>Cancelaciones:</strong> Cancelar o reprogramar con mínimo 24 horas de anticipación.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-shield-heart text-brand-rose mt-0.5"></i>
+                            <span><strong>Garantía del Trabajo:</strong> Ofrecemos 5 días de garantía de retoque sin costo adicional por desprendimiento accidental.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-ban text-brand-rose mt-0.5"></i>
+                            <span><strong>Acompañantes:</strong> Por espacio e higiene, solicitamos asistir preferentemente sin acompañantes.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sección Preguntas Frecuentes (FAQ) -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center mb-14">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-rose bg-brand-pink px-4 py-1.5 rounded-full border border-brand-blush">
+                    Resolvemos tus DUDAS
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mt-4">
+                    Preguntas Frecuentes
+                </h2>
+                <p class="text-gray-600 mt-2">
+                    Todo lo que necesitas saber antes de tu visita al estudio.
+                </p>
+            </div>
+
+            <!-- Acordeón FAQ -->
+            <div class="space-y-4">
+                
+                <!-- FAQ Item 1 -->
+                <div class="border border-brand-blush rounded-2xl overflow-hidden bg-brand-light">
+                    <button onclick="toggleFaq(1)" class="w-full p-5 text-left font-serif font-bold text-brand-dark flex justify-between items-center focus:outline-none hover:bg-brand-pink/40 transition">
+                        <span>¿Cuánto dura el esmaltado semipermanente o las uñas acrílicas?</span>
+                        <i id="faq-icon-1" class="fa-solid fa-chevron-down text-brand-rose transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-content-1" class="hidden p-5 pt-0 text-sm text-gray-600 border-t border-brand-blush/40 bg-white">
+                        El esmaltado semipermanente tiene una duración promedio de 15 a 21 días impecables. Las uñas acrílicas o en polygel duran de 3 a 4 semanas, requiriendo un mantenimiento o retoque en ese periodo para conservar la estructura saludable de la uña.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="border border-brand-blush rounded-2xl overflow-hidden bg-brand-light">
+                    <button onclick="toggleFaq(2)" class="w-full p-5 text-left font-serif font-bold text-brand-dark flex justify-between items-center focus:outline-none hover:bg-brand-pink/40 transition">
+                        <span>¿Qué diferencia hay entre Uñas Acrílicas y Polygel?</span>
+                        <i id="faq-icon-2" class="fa-solid fa-chevron-down text-brand-rose transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-content-2" class="hidden p-5 pt-0 text-sm text-gray-600 border-t border-brand-blush/40 bg-white">
+                        El acrílico es una mezcla de monómero y polímero súper resistente de secado al aire. El Polygel combina la resistencia del acrílico con la flexibilidad del gel, seca bajo lámpara LED y se siente más ligero e inodoro durante la aplicación.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="border border-brand-blush rounded-2xl overflow-hidden bg-brand-light">
+                    <button onclick="toggleFaq(3)" class="w-full p-5 text-left font-serif font-bold text-brand-dark flex justify-between items-center focus:outline-none hover:bg-brand-pink/40 transition">
+                        <span>¿Cómo debo preparar mis uñas para la cita?</span>
+                        <i id="faq-icon-3" class="fa-solid fa-chevron-down text-brand-rose transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-content-3" class="hidden p-5 pt-0 text-sm text-gray-600 border-t border-brand-blush/40 bg-white">
+                        Recomendamos acudir con las uñas limpias sin retirar la cutícula en casa. Evita aplicar aceites, cremas de manos o parafina un par de horas antes de la cita para asegurar la mejor adherencia de los productos.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="border border-brand-blush rounded-2xl overflow-hidden bg-brand-light">
+                    <button onclick="toggleFaq(4)" class="w-full p-5 text-left font-serif font-bold text-brand-dark flex justify-between items-center focus:outline-none hover:bg-brand-pink/40 transition">
+                        <span>¿Qué métodos de pago aceptan?</span>
+                        <i id="faq-icon-4" class="fa-solid fa-chevron-down text-brand-rose transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-content-4" class="hidden p-5 pt-0 text-sm text-gray-600 border-t border-brand-blush/40 bg-white">
+                        Aceptamos transferencias bancarias directas (Nequi, Daviplata, Bancolombia), tarjetas de crédito/débito y pago en efectivo al finalizar tu servicio.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Formulario de Contacto & Ubicación -->
+    <section id="contacto" class="py-20 bg-brand-pink/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Columna Izquierda: Formulario -->
+                <div class="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl border border-brand-blush shadow-lg">
+                    <div class="mb-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-brand-rose">Mensaje Directo</span>
+                        <h3 class="font-serif text-3xl font-bold text-brand-dark mt-1">Escríbenos o Solicita Información</h3>
+                        <p class="text-xs text-amber-600 bg-amber-50 p-2.5 rounded-xl border border-amber-200 mt-3 flex items-center gap-2">
+                            <i class="fa-solid fa-circle-info text-amber-500"></i>
+                            <span>Formulario interactivo de demostración. Responderemos a la brevedad.</span>
+                        </p>
+                    </div>
+
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-brand-dark mb-1">Nombre Completo *</label>
+                                <input type="text" required placeholder="Ej. María García" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-rose focus:ring-2 focus:ring-brand-blush text-sm outline-none transition">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-brand-dark mb-1">Teléfono / WhatsApp *</label>
+                                <input type="tel" required placeholder="Ej. 300 123 4567" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-rose focus:ring-2 focus:ring-brand-blush text-sm outline-none transition">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-brand-dark mb-1">Correo Electrónico</label>
+                                <input type="email" placeholder="maria@ejemplo.com" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-rose focus:ring-2 focus:ring-brand-blush text-sm outline-none transition">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-brand-dark mb-1">Servicio de Interés</label>
+                                <select class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-rose focus:ring-2 focus:ring-brand-blush text-sm outline-none transition text-gray-700">
+                                    <option>Uñas Esculpidas / Acrílico</option>
+                                    <option>Manicure Ruso + Semi</option>
+                                    <option>Nail Art Exclusivo</option>
+                                    <option>Pedicure Spa</option>
+                                    <option>Kapping / Rubber Base</option>
+                                    <option>Consulta General</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-brand-dark mb-1">Mensaje o Detalles del Diseño</label>
+                            <textarea rows="4" placeholder="Describe brevemente el diseño que deseas o tus fechas disponibles..." class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-rose focus:ring-2 focus:ring-brand-blush text-sm outline-none transition"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand-dark hover:bg-brand-rose text-white py-4 rounded-xl font-bold transition shadow-md flex justify-center items-center gap-2">
+                            <i class="fa-regular fa-paper-plane"></i> Enviar Consulta
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Columna Derecha: Tarjeta de Contacto Rápido & Mapa Ilustrativo -->
+                <div class="lg:col-span-5 flex flex-col justify-between space-y-6">
+                    
+                    <div class="bg-gradient-to-br from-brand-dark to-gray-900 text-white p-8 rounded-3xl shadow-xl relative overflow-hidden">
+                        <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-brand-rose/20 rounded-full blur-xl"></div>
+                        <h3 class="font-serif text-2xl font-bold text-brand-blush mb-4">¿Prefieres atención inmediata?</h3>
+                        <p class="text-sm text-gray-300 mb-6 leading-relaxed">
+                            Contáctanos directamente por WhatsApp para agendas exprés o emergencias de retoque de uñas.
+                        </p>
+                        <a href="https://wa.me/573000000000" target="_blank" class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white px-6 py-3.5 rounded-full font-bold text-sm transition shadow-lg">
+                            <i class="fa-brands fa-whatsapp text-xl"></i> Chatear por WhatsApp
+                        </a>
+                    </div>
+
+                    <!-- Dirección y Ubicación -->
+                    <div class="bg-white p-8 rounded-3xl border border-brand-blush shadow-sm flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-full bg-brand-pink flex items-center justify-center text-brand-rose">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-serif font-bold text-brand-dark">Estudio Privado</h4>
+                                    <p class="text-xs text-gray-500">Zona Exclusiva - Cali, Colombia</p>
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray-600 mb-4">
+                                * La dirección exacta se envía junto con la confirmación de tu reserva por motivos de seguridad y atención personalizada.
+                            </p>
+                        </div>
+                        
+                        <!-- Mini mapa ilustrativo -->
+                        <div class="w-full h-36 bg-brand-pink rounded-2xl flex flex-col items-center justify-center text-center p-4 border border-brand-blush/60">
+                            <i class="fa-solid fa-map-location-dot text-brand-rose text-3xl mb-2"></i>
+                            <span class="text-xs font-bold text-brand-dark">Atención bajo cita previa</span>
+                            <span class="text-[11px] text-gray-500">Ambiente higiénico y climatizado</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-white pt-16 pb-12 border-t border-brand-rose/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-gray-800">
+                
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-rose flex items-center justify-center text-white">
+                            <i class="fa-solid fa-sparkles"></i>
+                        </div>
+                        <span class="font-serif text-2xl font-bold tracking-tight text-white">Nails Art <span class="text-brand-blush text-sm font-normal">by Isabel C</span></span>
+                    </div>
+                    <p class="text-gray-400 text-sm max-w-sm leading-relaxed">
+                        Estudio especializado en salud, cuidado y diseño artístico de uñas. Transformando cada servicio en una experiencia única de belleza y autoestima.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-serif font-bold text-brand-blush mb-4">Navegación</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#inicio" class="hover:text-white transition">Inicio</a></li>
+                        <li><a href="#servicios" class="hover:text-white transition">Servicios & Precios</a></li>
+                        <li><a href="#politicas" class="hover:text-white transition">Políticas & Horarios</a></li>
+                        <li><a href="#faq" class="hover:text-white transition">Preguntas Frecuentes</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-serif font-bold text-brand-blush mb-4">Síguenos</h4>
+                    <div class="flex space-x-4 text-xl">
+                        <a href="https://instagram.com" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-pink-400 hover:bg-brand-rose hover:text-white transition">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://facebook.com" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-blue-400 hover:bg-brand-rose hover:text-white transition">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://wa.me/573000000000" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-green-400 hover:bg-brand-rose hover:text-white transition">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-4">
+                <p>&copy; 2026 Nails Art by Isabel C. Todos los derechos reservados.</p>
+                <p>Diseño Web Profesional con Estilo Pastel & Rose Gold.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón Flotante de WhatsApp Directo -->
+    <a href="https://wa.me/573000000000" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 hover:scale-110 transition duration-300">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Modal para Solicitar Cita / Información -->
+    <div id="bookingModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl border border-brand-blush relative animate-fade-in">
+            <button onclick="closeBookingModal()" class="absolute top-5 right-5 text-gray-400 hover:text-brand-dark text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-brand-pink rounded-full flex items-center justify-center text-brand-rose mx-auto mb-3 text-xl">
+                    <i class="fa-regular fa-calendar-check"></i>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-brand-dark">Solicitar Cita</h3>
+                <p class="text-xs text-gray-500">Selecciona los detalles para agendar vía WhatsApp</p>
+            </div>
+
+            <form onsubmit="handleModalSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-brand-dark mb-1">Tu Nombre</label>
+                    <input type="text" id="modalName" required placeholder="Ingresa tu nombre" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm outline-none focus:border-brand-rose">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-brand-dark mb-1">Servicio Deseado</label>
+                    <select id="modalService" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm outline-none focus:border-brand-rose text-gray-700">
+                        <option value="Uñas Esculpidas & Acrílicas">Uñas Esculpidas & Acrílicas</option>
+                        <option value="Manicure Ruso & Esmaltado Gel">Manicure Ruso & Esmaltado Gel</option>
+                        <option value="Nail Art Personalizado">Nail Art Personalizado</option>
+                        <option value="Pedicure Spa Completo">Pedicure Spa Completo</option>
+                        <option value="Kapping / Rubber Base">Kapping / Rubber Base</option>
+                        <option value="Retiro Seguro & Mantenimiento">Retiro Seguro & Mantenimiento</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-brand-dark mb-1">Fecha o Horario Preferido</label>
+                    <input type="text" id="modalDate" placeholder="Ej: Mañana en la tarde o Sábado 10 AM" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm outline-none focus:border-brand-rose">
+                </div>
+                
+                <button type="submit" class="w-full bg-brand-rose hover:bg-brand-dark text-white py-3.5 rounded-xl font-bold transition text-sm shadow-md flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Confirmar por WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script de Lógica Interactiva -->
+    <script>
+        // Menú Móvil Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Toggle para Preguntas Frecuentes (FAQ)
+        function toggleFaq(id) {
+            const content = document.getElementById(`faq-content-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // Modal para Agendar Cita
+        function openBookingModal(serviceName = '') {
+            const modal = document.getElementById('bookingModal');
+            if(serviceName) {
+                const select = document.getElementById('modalService');
+                select.value = serviceName;
+            }
+            modal.classList.remove('hidden');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+        }
+
+        // Envío de Formulario Modal a WhatsApp
+        function handleModalSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('modalName').value;
+            const service = document.getElementById('modalService').value;
+            const date = document.getElementById('modalDate').value;
+
+            const text = `Hola Isabel! Mi nombre es ${name}. Me gustaría agendar una cita para *${service}* (Preferencia: ${date}).`;
+            const encodedText = encodeURIComponent(text);
+            
+            window.open(`https://wa.me/573000000000?text=${encodedText}`, '_blank');
+            closeBookingModal();
+        }
+
+        // Envío de Formulario de Contacto
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            alert('¡Gracias por enviar tu mensaje! Te responderemos muy pronto.');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
